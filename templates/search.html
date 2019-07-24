@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!--FONT-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" rel="stylesheet">
+
+    <!--CSS-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+</head>
+
+<body>
+    <!--NAV BAR-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">Home</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Coisa pra vender <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/login" data-toggle="modal" data-target="#exampleModalCenter">Não pode
+                        clicar
+                        aqui</a>
+                </li>
+                <li class="nav-item dropdown">
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    {% for car in carros %}
+    <img id="fotin" src={{ base_url }}{{ car[5]}}>
+    <div id="det_car">
+        <label class="titu">Nome: </label> {{car[0]}}<br>
+        <br><label class="titu">Marca: </label> {{car[1]}}<br>
+        <br><label class="titu">Ano: </label> {{car[2]}}<br>
+        <br><label class="titu">Cor: </label> {{car[3]}}<br>
+        <br><label class="titu">Preço: </label> {{car[4]}}<br>
+        <form align="center" action="/reservando2/{{car[0]}}">
+            <br><input id="botao2" type="submit" value="Reservar">
+        </form>
+        {% endfor %}
+    </div>
+    <!--JAVASCRIPT-->
+    <script src=" https://code.jquery.com/jquery-3.3.1.slim.min.js"> </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+</body>
+
+</html>

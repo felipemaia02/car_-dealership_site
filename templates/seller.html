@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<!--FONT-->
+<link href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" rel="stylesheet">
+
+<!--CSS-->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+<link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+</head>
+<style type="text/css">
+    .jumbotron {
+        background-color: white;
+        text-align: center;
+    }
+</style>
+
+<body>
+    <div>
+        <!--NAV BAR-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="/">Home</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login_page" data-toggle="modal"
+                            data-target="#exampleModalCenter">Adicionar Carro</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
+                    <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Buscar</button>
+                </form>
+            </div>
+        </nav>
+
+        <!-- Modal -->
+        <form action='/login_page_register' method="POST" enctype="multipart/form-data">
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Adicionar Carro</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                            <input class="form-control mr-sm-2" type="text" placeholder="Modelo" name="modelo"><br>
+                            <input class="form-control mr-sm-2" type="text" placeholder="Ano" name="ano"><br>
+                            <input class="form-control mr-sm-2" type="text" placeholder="Marca" name="marca"><br>
+                            <input class="form-control mr-sm-2" type="text" placeholder="Km/L" name="gas"><br>
+                            <input class="form-control mr-sm-2" type="text" placeholder="Cor" name="cor"><br>
+                            <input class="form-control mr-sm-2" type="text" placeholder="Cv" name="cv"><br>
+                            <input class="form-control mr-sm-2" type="text" placeholder="Placa" name="Placa"><br>
+                            <input class="form-control mr-sm-2" type="text" placeholder="Km Rodados" name="km"><br>
+                            <input class="form-control mr-sm-2" type="text" placeholder="Valor" name="valor"><br>
+                            <label>Selecine a foto</label>
+                            <input type="file" name="foto">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline" data-dismiss="modal">Fechar</button>
+                        <button type="submit" class="btn btn-outline-dark">Cadastrar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--TABLE-->
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Modelo</th>
+                    <th scope="col">Ano</th>
+                    <th scope="col">Marca</th>
+                    <th scope="col">Cor</th>
+                    <th scope="col">Valor</th>
+                    <th scope="col">Vip</th>
+                    <th scope="col">Reservado</th>
+                    <th scope="col">Excluir</th>
+                </tr>
+            </thead>
+            {%for carro in carros %}
+            <tr>
+                <td>{{carro[1]}}</td>
+                <td>{{carro[2]}}</td>
+                <td>{{carro[3]}}</td>
+                <td>{{carro[4]}}</td>
+                <td>{{carro[7]}}</td>
+                <td></td>
+                <td></td>
+                <td><a href="/excluido_anuncio/{{carro[0]}}" class="btn btn-outline-dark">Excluir</td>
+            </tr>
+            {%endfor%}
+    </div>
+
+    <!--JAVASCRIPT-->
+    <script src=" https://code.jquery.com/jquery-3.3.1.slim.min.js"> </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.owl-carousel').owlCarousel({
+                loop: true,
+                margin: 10,
+                responsiveClass: true,
+                autoplay: true,
+                autoplayTimeout: 8000,
+                autoplayHoverPause: true,
+                responsive: {
+                    0: {
+                        width: 100,
+                        items: 1,
+                        nav: false
+                    },
+                    600: {
+                        items: 1,
+                        nav: false
+                    },
+                    1000: {
+                        width: 100,
+                        items: 1,
+                        nav: false,
+                    }
+                }
+            })
+        });
+    </script>
+</body>
+
+</body>
+
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <!--FONT-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" rel="stylesheet">
+
+  <!--CSS-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+</head>
+<style type="text/css">
+  .jumbotron {
+    background-color: white;
+    text-align: center;
+  }
+
+</style>
+
+<body>
+  <!--NAV BAR-->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/">Home</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/car_page">Coisa pra vender <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/userpage" data-toggle="modal" data-target="#exampleModalCenter1">Não pode clicar
+            aqui</a>
+        </li>
+        <li class="nav-item dropdown">
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div>
+    <!-- Modal -->
+    <form action='/userpage' method="post">
+      <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Falei pra não clicar</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <input class="form-control mr-sm-2" type="text" placeholder="Usuário" name="login"><br>
+              <input class="form-control mr-sm-2" type="password" placeholder="Senha" name="senha">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline" data-dismiss="modal">Fechar</button>
+              <button type="submit" class="btn btn-outline-dark">Login</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+
+  <!--SEARCH BAR-->
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-sm-6">
+        <form action="/consultacarros">
+        <div class="form-group input-group" style="position:absolute; z-index:99; margin-top: 30%">
+          <input name="buscando" id="txt_consulta" placeholder="Pesquisar" type="text" class="form-control">
+          <input type="submit" class="btn btn-dark" value="Buscar">
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!--CAROUSEL-->
+  <div class="owl-carousel " style="position: relative; z-index: -1;">
+    <div style="width: 100%; height: 100%; "><img
+        src="/static/American-Classic-Car-American-Muscle-Car-antique-auto-Antique-Automobile-antique-car-auto-1435033-pxhere.com.jpg">
+    </div>
+    <div style="width: 100%; height: 100%;"><img
+        src="/static/auto-automotive-photography-Automotive-Portrait-car-car-photo-car-photography-1439581-pxhere.com.jpg">
+    </div>
+    <div style="width: 100%; height: 100%;"><img
+        src="/static/beacon-hill-geotagged-Greer-south-carolina-united-states-usa-1451255-pxhere.com.jpg">
+    </div>
+  </div>
+<!-- COPYRIGHT-->
+  <footer class="copyright-section index-footer text-center">
+    <p>Copyright (c) 2019 Felipe Maia</p>
+  </footer>
+  </div>
+
+  <!--JAVASCRIPT-->
+  <script src=" https://code.jquery.com/jquery-3.3.1.slim.min.js"> </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('.owl-carousel').owlCarousel({
+        loop: true,
+        margin: 10,
+        responsiveClass: true,
+        autoplay: true,
+        autoplayTimeout: 8000,
+        autoplayHoverPause: true,
+        responsive: {
+          0: {
+            width: 100,
+            items: 1,
+            nav: false
+          },
+          600: {
+            items: 1,
+            nav: false
+          },
+          1000: {
+            width: 100,
+            items: 1,
+            nav: false,
+          }
+        }
+      })
+    });
+  </script>
+</body>
+
+</html>
+
+<!--{% for carro in carros %}
+    <img src="{{url_for('static', filename=carro[3])}}">
+    {% endfor %}-->
